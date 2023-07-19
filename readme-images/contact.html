@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+    
+    h2 {
+      color: #333333;
+    }
+    
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 3px;
+      border: 1px solid #dddddd;
+      margin-bottom: 20px;
+    }
+    
+    textarea {
+      height: 100px;
+    }
+    
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    
+    .error {
+      color: #ff0000;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var name = document.forms["contactForm"]["name"].value;
+      var email = document.forms["contactForm"]["email"].value;
+      var message = document.forms["contactForm"]["message"].value;
+      
+      if (name == "") {
+        alert("Name must be filled out");
+        return false;
+      }
+      
+      if (email == "") {
+        alert("Email must be filled out");
+        return false;
+      }
+      
+      if (message == "") {
+        alert("Message must be filled out");
+        return false;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Contact Us</h2>
+  
+  <form name="contactForm" action="process.php" method="POST" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea><br><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
